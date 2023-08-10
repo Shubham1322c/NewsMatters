@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Loading from './Loading';
 
+
 export default class News extends Component {
     
     constructor(){
@@ -14,7 +15,7 @@ export default class News extends Component {
     }
 
     async componentDidMount(){
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=74effee455074cacbc4056d7471b1743&page=1&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=74effee455074cacbc4056d7471b1743&page=1&pageSize=${this.props.pageSize}`;
       this.setState({loading: true})
       let  data = await fetch(url);
       let parsedData = await data.json();
@@ -23,7 +24,7 @@ export default class News extends Component {
     }
 
     handlePrevious = async () => {
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=74effee455074cacbc4056d7471b1743&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=74effee455074cacbc4056d7471b1743&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
       this.setState({loading: true});
       let  data = await fetch(url);
       let parsedData = await data.json();
@@ -39,7 +40,7 @@ export default class News extends Component {
 
       
 
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=74effee455074cacbc4056d7471b1743&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=74effee455074cacbc4056d7471b1743&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading: true});
         let  data = await fetch(url);
         let parsedData = await data.json();
@@ -54,7 +55,7 @@ export default class News extends Component {
   render() {
     return (
       <div className='container my-4'>
-        <h1 className='text-center'>Top Headlines</h1>
+        <h1 className='text-center'>{this.props.headline}</h1>
         {this.state.loading && <Loading/>}
         <div className="row">
         
