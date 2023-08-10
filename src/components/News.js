@@ -62,7 +62,7 @@ export default class News extends Component {
         {!this.state.loading && this.state.articles.map((element)=>{
        
         return <div className="col-md-3" key={element.url}>
-            <NewsItem title={element.title?element.title.slice(0,40):""}  desc={element.description?element.description.slice(0, 69):""} imageUrl={element.urlToImage===null?"https://images.hindustantimes.com/tech/img/2023/08/07/1600x900/Amazon_1691384235792_1691384236019.jpg":element.urlToImage} url={element.url}/>
+            <NewsItem title={element.title?element.title.slice(0,40):""} time={element.publishedAt===null?"Unknown":element.publishedAt.slice(0,10)} author={element.author===null?"Unknown":element.author} desc={element.description?element.description.slice(0, 69):""} imageUrl={element.urlToImage===null?"https://images.hindustantimes.com/tech/img/2023/08/07/1600x900/Amazon_1691384235792_1691384236019.jpg":element.urlToImage} url={element.url}/>
         </div> 
       
         }
