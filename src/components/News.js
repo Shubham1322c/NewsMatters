@@ -20,23 +20,27 @@ static propTypes = {
     super(props);
     this.state = {
       articles: [],
-      loading: true,
+      loading: false,
       page: 1,
       totalResults: 0,
     };
   }
 
   async updateNews(page) {
+    this.props.setProgress(30);
     const url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apikey=dbe57b028aeb41e285a226a94865f7a7&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     
     let data = await fetch(url);
+    this.props.setProgress(50);
     let parsedData = await data.json();
+    this.props.setProgress(70);
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
       loading: false,
       page: this.state.page + 1
     });
+    this.props.setProgress(100);
   }
 
   fetchMoreData = async () => {
@@ -56,6 +60,11 @@ static propTypes = {
   }
 
   render() {
+    // Inside the render() function
+// console.log("Articles length:", this.state.articles.length);
+// console.log("Total results:", this.state.totalResults);
+// console.log("Has more:", this.state.articles.length < this.state.totalResults);
+
     return (
       <>
         <h1 className="text-center my-4">{this.props.headline}</h1>
@@ -63,7 +72,7 @@ static propTypes = {
         <InfiniteScroll
           dataLength={this.state.articles.length}
           next={this.fetchMoreData}
-          hasMore={this.state.articles.length !== this.state.totalResults}
+          hasMore={this.state.articles.length !== this.state.totalResults - 8}
           loader={<Loading />}
         >
           <div className="container my-3">
