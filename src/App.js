@@ -9,7 +9,7 @@ import LoadingBar from 'react-top-loading-bar'
 export default class App extends Component {
   pageSize = 8;
   state = {progress: 10}
-  apiKey = process.env.REACT_APP_NEWS_API;
+  apiKey = process.env.REACT_APP_NEWS_API; //Add your apikey in .env.local files
   setProgress = (progress) => {
     this.setState({progress: progress})
   }
