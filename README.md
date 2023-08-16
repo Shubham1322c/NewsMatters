@@ -2,6 +2,7 @@
 
 NewsMatters is a React app designed to keep you updated with the latest news from various categories, including politics, technology, business, lifestyle, and more. It fetches news using the NewsAPI and presents it in an organized and user-friendly manner. This app is built using class-based components in React.
 
+## Preview 👀
 ![NewsMatters Demo](https://i.postimg.cc/HknwnwZc/News-Matters.jpg)
 
 ## Features 🚀
