@@ -24,7 +24,7 @@ Follow these steps to get NewsMatters up and running on your local machine:
 
 2. **Obtain your NewsAPI key:**
 
-You need to sign up for a free API key from NewsAPI and replace 'YOUR_API_KEY' with your actual API key in the .env.local file.
+You need to sign up for a free API key from NewsAPI and then create a .env.local folder and add 'REACT_APP_NEWS_API="Your_Api_Key"' replace 'Your_Api_Key' with your actual API key in the .env.local file.
 
 3. **Install the required dependencies:**
     ```bash
