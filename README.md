@@ -26,11 +26,15 @@ Follow these steps to get NewsMatters up and running on your local machine:
 
 You need to sign up for a free API key from NewsAPI and replace 'YOUR_API_KEY' with your actual API key in the .env.local file.
 
-3. **Run the app:**
+3. **Install the required dependencies:**
+    ```bash
+    npm install
+
+4. **Run the app:**
     ```bash
     npm start
 
-4. **Open in your browser:**
+5. **Open in your browser:**
 
 Visit http://localhost:3000 in your browser to access NewsMatters and start exploring the latest news!
 
